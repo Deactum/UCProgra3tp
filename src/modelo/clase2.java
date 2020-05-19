@@ -7,9 +7,8 @@ package modelo;
 
 /**
  *
- * @author dfleitas
+ * @author Danilo
  */
-public class clase1 {
-    private int hora;
+public class clase2 {
     
 }
