@@ -13,6 +13,8 @@ package modelo;
 public class Main {
     public static void main(String args[]){
         System.out.println("hola mundo");
+        System.otu.println("hola progrmador");
+        //Agregado por danilo 
        
     }
 }
