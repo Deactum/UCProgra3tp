@@ -11,6 +11,5 @@ package modelo;
  */
 public class clase2 {
     private int h;
-    //creado en la notebook
-    //creando comentario 2
+ 
 }
