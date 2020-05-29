@@ -176,11 +176,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar Evento"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarEveActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEliminarEve">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar Evento"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarEveActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnDuracionEve">
           <Properties>
@@ -236,11 +242,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar Ponencia"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarPonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnBorrarPon">
           <Properties>
             <Property name="text" type="java.lang.String" value="Borrar Ponencia"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrarPonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

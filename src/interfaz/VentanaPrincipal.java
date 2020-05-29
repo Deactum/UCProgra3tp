@@ -1,4 +1,3 @@
-
 package interfaz;
 
 /**
@@ -62,8 +61,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cboCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asunción", "Ciudad del Este", "Luque", "San Lorenzo", "Capiatá", "Lambaré", "Fernando de la Mora", "Limpio", "Ñemby", "Encarnación", "Caaguazú", "Coronel Oviedo", "Pedro Juan Caballero", "Itauguá", "Mariano Roque Alonso", "Presidente Franco", "Minga Guazú", "Concepción", "Itá", "Villa Elisa" }));
 
         btnAgregarEve.setText("Agregar Evento");
+        btnAgregarEve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarEveActionPerformed(evt);
+            }
+        });
 
         btnEliminarEve.setText("Eliminar Evento");
+        btnEliminarEve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarEveActionPerformed(evt);
+            }
+        });
 
         btnDuracionEve.setText("Duracion del Evento");
 
@@ -104,8 +113,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnNumeroVid.setText("Numero de Videoconferencias");
 
         btnAgregarPon.setText("Agregar Ponencia");
+        btnAgregarPon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarPonActionPerformed(evt);
+            }
+        });
 
         btnBorrarPon.setText("Borrar Ponencia");
+        btnBorrarPon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarPonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlPonenciaLayout = new javax.swing.GroupLayout(pnlPonencia);
         pnlPonencia.setLayout(pnlPonenciaLayout);
@@ -290,6 +309,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
+        AgregarEvento ae = new AgregarEvento(this, true);
+        ae.setVisible(true);
+    }//GEN-LAST:event_btnAgregarEveActionPerformed
+
+    private void btnEliminarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEveActionPerformed
+        EliminarEvento ee = new EliminarEvento(this, true);
+        ee.setVisible(true);
+    }//GEN-LAST:event_btnEliminarEveActionPerformed
+
+    private void btnAgregarPonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPonActionPerformed
+        AgregarPonencia ap = new AgregarPonencia(this, true);
+        ap.setVisible(true);
+    }//GEN-LAST:event_btnAgregarPonActionPerformed
+
+    private void btnBorrarPonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarPonActionPerformed
+        BorrarPonencia bp = new BorrarPonencia(this, true);
+        bp.setVisible(true);
+    }//GEN-LAST:event_btnBorrarPonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
