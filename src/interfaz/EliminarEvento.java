@@ -50,8 +50,6 @@ public class EliminarEvento extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        VentanaPrincipal vp = new VentanaPrincipal();
-        vp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
