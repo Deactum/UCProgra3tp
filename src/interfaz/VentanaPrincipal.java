@@ -19,26 +19,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         spdBarra = new javax.swing.JSeparator();
         etiTItuloPrincipal = new javax.swing.JLabel();
         pnlEvento = new javax.swing.JPanel();
-        etiCiudad = new javax.swing.JLabel();
+        etiCiudade = new javax.swing.JLabel();
         cboCiudad = new javax.swing.JComboBox<>();
         btnAgregarEve = new javax.swing.JButton();
         btnEliminarEve = new javax.swing.JButton();
-        btnDuracionEve = new javax.swing.JButton();
         pnlPonencia = new javax.swing.JPanel();
-        btnNumeroVid = new javax.swing.JButton();
         btnAgregarPon = new javax.swing.JButton();
         btnBorrarPon = new javax.swing.JButton();
-        pnlDatosPon = new javax.swing.JPanel();
-        etiTitulo = new javax.swing.JLabel();
-        etiFecha = new javax.swing.JLabel();
-        etiNombreInves = new javax.swing.JLabel();
-        etiDescripcion = new javax.swing.JLabel();
-        etiTipoPon = new javax.swing.JLabel();
-        txtTitulo = new javax.swing.JTextField();
-        txtFecha = new javax.swing.JTextField();
-        txtNombreInves = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
-        cboTipoPon = new javax.swing.JComboBox<>();
+        pnlDatos = new javax.swing.JPanel();
+        etiMostCiudad = new javax.swing.JLabel();
+        etiMostFechIni = new javax.swing.JLabel();
+        etiMostEvento = new javax.swing.JLabel();
+        etiMostFechFin = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaPonencia = new javax.swing.JTable();
+        etiMostTotalPone = new javax.swing.JLabel();
+        etiCiudad = new javax.swing.JLabel();
+        etiFechIni = new javax.swing.JLabel();
+        etiEvento = new javax.swing.JLabel();
+        etiFechFin = new javax.swing.JLabel();
+        etiTotalPone = new javax.swing.JLabel();
         pnlDatoPag = new javax.swing.JPanel();
         btnPagPrincipio = new javax.swing.JButton();
         btnPagAnterior = new javax.swing.JButton();
@@ -55,8 +55,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pnlEvento.setBorder(javax.swing.BorderFactory.createTitledBorder("Evento"));
         pnlEvento.setToolTipText("");
 
-        etiCiudad.setText("Ciudad:");
-        etiCiudad.setFocusable(false);
+        etiCiudade.setText("Ciudad:");
+        etiCiudade.setFocusable(false);
 
         cboCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asunción", "Ciudad del Este", "Luque", "San Lorenzo", "Capiatá", "Lambaré", "Fernando de la Mora", "Limpio", "Ñemby", "Encarnación", "Caaguazú", "Coronel Oviedo", "Pedro Juan Caballero", "Itauguá", "Mariano Roque Alonso", "Presidente Franco", "Minga Guazú", "Concepción", "Itá", "Villa Elisa" }));
 
@@ -74,8 +74,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnDuracionEve.setText("Duracion del Evento");
-
         javax.swing.GroupLayout pnlEventoLayout = new javax.swing.GroupLayout(pnlEvento);
         pnlEvento.setLayout(pnlEventoLayout);
         pnlEventoLayout.setHorizontalGroup(
@@ -83,11 +81,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEventoLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(pnlEventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnDuracionEve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEliminarEve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAgregarEve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlEventoLayout.createSequentialGroup()
-                        .addComponent(etiCiudad)
+                        .addComponent(etiCiudade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                         .addComponent(cboCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46))
@@ -98,19 +95,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(pnlEventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cboCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiCiudad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(etiCiudade))
+                .addGap(18, 18, 18)
                 .addComponent(btnAgregarEve, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnEliminarEve, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDuracionEve, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         pnlPonencia.setBorder(javax.swing.BorderFactory.createTitledBorder("Ponencia"));
-
-        btnNumeroVid.setText("Numero de Videoconferencias");
 
         btnAgregarPon.setText("Agregar Ponencia");
         btnAgregarPon.addActionListener(new java.awt.event.ActionListener() {
@@ -132,96 +125,111 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             pnlPonenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPonenciaLayout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
-                .addGroup(pnlPonenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnNumeroVid, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                    .addComponent(btnAgregarPon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBorrarPon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlPonenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAgregarPon, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBorrarPon, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         pnlPonenciaLayout.setVerticalGroup(
             pnlPonenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPonenciaLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(btnNumeroVid, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(btnAgregarPon, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(btnBorrarPon, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
-        pnlDatosPon.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de la Ponencia"));
+        pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
 
-        etiTitulo.setText("Titulo:");
-        etiTitulo.setFocusable(false);
+        etiMostCiudad.setText("Ciudad:");
 
-        etiFecha.setText("Fecha:");
-        etiFecha.setFocusable(false);
+        etiMostFechIni.setText("Fecha de Inicio:");
 
-        etiNombreInves.setText("Nombre del Investigador:");
-        etiNombreInves.setFocusable(false);
+        etiMostEvento.setText("Evento:");
 
-        etiDescripcion.setText("Descripcion:");
-        etiDescripcion.setFocusable(false);
+        etiMostFechFin.setText("Fecha de Finalizacíon:");
 
-        etiTipoPon.setText("Tipo de Ponencia:");
-        etiTipoPon.setFocusable(false);
+        tablaPonencia.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        cboTipoPon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Precencial", "Videoconferencia" }));
+            },
+            new String [] {
+                "Titulo", "Fecha", "Nombre del Investigador", "Descripcion", "Tipo de Ponencias"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaPonencia);
 
-        javax.swing.GroupLayout pnlDatosPonLayout = new javax.swing.GroupLayout(pnlDatosPon);
-        pnlDatosPon.setLayout(pnlDatosPonLayout);
-        pnlDatosPonLayout.setHorizontalGroup(
-            pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDatosPonLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlDatosPonLayout.createSequentialGroup()
-                        .addComponent(etiNombreInves)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                        .addComponent(txtNombreInves, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosPonLayout.createSequentialGroup()
-                        .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosPonLayout.createSequentialGroup()
-                                .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(etiTitulo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etiFecha, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etiDescripcion, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(131, 131, 131))
-                            .addGroup(pnlDatosPonLayout.createSequentialGroup()
-                                .addComponent(etiTipoPon)
-                                .addGap(102, 102, 102)))
-                        .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTitulo)
-                            .addComponent(txtFecha)
-                            .addComponent(txtDescripcion)
-                            .addComponent(cboTipoPon, 0, 200, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        etiMostTotalPone.setText("Total de Ponencias:");
+
+        etiCiudad.setText("X");
+
+        etiFechIni.setText("X");
+
+        etiEvento.setText("X");
+
+        etiFechFin.setText("X");
+
+        etiTotalPone.setText("X");
+
+        javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
+        pnlDatos.setLayout(pnlDatosLayout);
+        pnlDatosLayout.setHorizontalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiMostFechIni)
+                            .addComponent(etiMostCiudad))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiCiudad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etiFechIni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(73, 73, 73)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiMostFechFin)
+                            .addComponent(etiMostEvento))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(etiFechFin, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(etiEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                        .addComponent(etiMostTotalPone)
+                        .addGap(18, 18, 18)
+                        .addComponent(etiTotalPone, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
-        pnlDatosPonLayout.setVerticalGroup(
-            pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDatosPonLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiTitulo)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiFecha)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreInves, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiNombreInves))
-                .addGap(40, 40, 40)
-                .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiDescripcion)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(pnlDatosPonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cboTipoPon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiTipoPon))
-                .addGap(46, 46, 46))
+        pnlDatosLayout.setVerticalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiMostCiudad)
+                    .addComponent(etiMostEvento)
+                    .addComponent(etiCiudad)
+                    .addComponent(etiEvento))
+                .addGap(18, 18, 18)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(etiMostFechIni)
+                        .addComponent(etiFechIni))
+                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(etiMostFechFin)
+                        .addComponent(etiFechFin)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiMostTotalPone)
+                    .addComponent(etiTotalPone))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pnlDatoPag.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -245,11 +253,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(pnlDatoPagLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(btnPagPrincipio, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(106, 106, 106)
                 .addComponent(btnPagAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGap(100, 100, 100)
                 .addComponent(btnPagSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(btnPagFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -271,40 +279,42 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(spdBarra)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(spdBarra)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pnlEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pnlPonencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pnlDatosPon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlDatoPag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlDatoPag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(6, 6, 6))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(etiTItuloPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108))
+                .addGap(173, 173, 173))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(38, 38, 38)
                 .addComponent(etiTItuloPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(spdBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnlDatosPon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pnlDatoPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pnlPonencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -366,30 +376,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarEve;
     private javax.swing.JButton btnAgregarPon;
     private javax.swing.JButton btnBorrarPon;
-    private javax.swing.JButton btnDuracionEve;
     private javax.swing.JButton btnEliminarEve;
-    private javax.swing.JButton btnNumeroVid;
     private javax.swing.JButton btnPagAnterior;
     private javax.swing.JButton btnPagFinal;
     private javax.swing.JButton btnPagPrincipio;
     private javax.swing.JButton btnPagSiguiente;
     private javax.swing.JComboBox<String> cboCiudad;
-    private javax.swing.JComboBox<String> cboTipoPon;
     private javax.swing.JLabel etiCiudad;
-    private javax.swing.JLabel etiDescripcion;
-    private javax.swing.JLabel etiFecha;
-    private javax.swing.JLabel etiNombreInves;
+    private javax.swing.JLabel etiCiudade;
+    private javax.swing.JLabel etiEvento;
+    private javax.swing.JLabel etiFechFin;
+    private javax.swing.JLabel etiFechIni;
+    private javax.swing.JLabel etiMostCiudad;
+    private javax.swing.JLabel etiMostEvento;
+    private javax.swing.JLabel etiMostFechFin;
+    private javax.swing.JLabel etiMostFechIni;
+    private javax.swing.JLabel etiMostTotalPone;
     private javax.swing.JLabel etiTItuloPrincipal;
-    private javax.swing.JLabel etiTipoPon;
-    private javax.swing.JLabel etiTitulo;
+    private javax.swing.JLabel etiTotalPone;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlDatoPag;
-    private javax.swing.JPanel pnlDatosPon;
+    private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlEvento;
     private javax.swing.JPanel pnlPonencia;
     private javax.swing.JSeparator spdBarra;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtFecha;
-    private javax.swing.JTextField txtNombreInves;
-    private javax.swing.JTextField txtTitulo;
+    private javax.swing.JTable tablaPonencia;
     // End of variables declaration//GEN-END:variables
 }

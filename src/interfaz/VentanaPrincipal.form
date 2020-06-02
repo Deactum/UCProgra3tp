@@ -24,42 +24,45 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="spdBarra" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="spdBarra" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="pnlEvento" min="-2" max="-2" attributes="0"/>
                           <Component id="pnlPonencia" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="pnlDatosPon" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pnlDatos" max="32767" attributes="0"/>
                           <Component id="pnlDatoPag" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="etiTItuloPrincipal" min="-2" pref="780" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="etiTItuloPrincipal" min="-2" pref="90" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="spdBarra" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="pnlDatosPon" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnlDatos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="pnlDatoPag" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -69,7 +72,7 @@
                       <Component id="pnlPonencia" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,11 +105,10 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnDuracionEve" max="32767" attributes="0"/>
                       <Component id="btnEliminarEve" max="32767" attributes="0"/>
                       <Component id="btnAgregarEve" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="etiCiudad" min="-2" max="-2" attributes="0"/>
+                          <Component id="etiCiudade" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="52" max="32767" attributes="0"/>
                           <Component id="cboCiudad" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -121,21 +123,19 @@
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cboCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="etiCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiCiudade" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnAgregarEve" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace pref="39" max="32767" attributes="0"/>
                   <Component id="btnEliminarEve" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnDuracionEve" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="etiCiudad">
+        <Component class="javax.swing.JLabel" name="etiCiudade">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ciudad:"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -188,11 +188,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarEveActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnDuracionEve">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Duracion del Evento"/>
-          </Properties>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="pnlPonencia">
@@ -209,10 +204,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace pref="45" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnNumeroVid" pref="251" max="32767" attributes="0"/>
-                      <Component id="btnAgregarPon" max="32767" attributes="0"/>
-                      <Component id="btnBorrarPon" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnAgregarPon" min="-2" pref="251" max="-2" attributes="0"/>
+                      <Component id="btnBorrarPon" min="-2" pref="251" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="45" max="32767" attributes="0"/>
               </Group>
@@ -221,23 +215,16 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="btnNumeroVid" min="-2" pref="45" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="btnAgregarPon" min="-2" pref="45" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Component id="btnBorrarPon" min="-2" pref="45" max="-2" attributes="0"/>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnNumeroVid">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Numero de Videoconferencias"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="btnAgregarPon">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar Ponencia"/>
@@ -256,11 +243,11 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="pnlDatosPon">
+    <Container class="javax.swing.JPanel" name="pnlDatos">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Datos de la Ponencia"/>
+            <TitledBorder title="Datos"/>
           </Border>
         </Property>
       </Properties>
@@ -268,125 +255,151 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="etiNombreInves" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="61" max="32767" attributes="0"/>
-                          <Component id="txtNombreInves" min="-2" pref="200" max="-2" attributes="0"/>
-                      </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="etiTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="etiFecha" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="etiDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="131" pref="131" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="etiTipoPon" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="etiMostFechIni" min="-2" max="-2" attributes="0"/>
+                              <Component id="etiMostCiudad" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="etiCiudad" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="etiFechIni" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="etiMostFechFin" min="-2" max="-2" attributes="0"/>
+                              <Component id="etiMostEvento" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtTitulo" max="32767" attributes="0"/>
-                              <Component id="txtFecha" max="32767" attributes="0"/>
-                              <Component id="txtDescripcion" max="32767" attributes="0"/>
-                              <Component id="cboTipoPon" pref="200" max="32767" attributes="0"/>
+                              <Component id="etiFechFin" pref="150" max="32767" attributes="0"/>
+                              <Component id="etiEvento" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="etiMostTotalPone" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="etiTotalPone" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="etiTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiMostCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiMostEvento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiEvento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="etiMostFechIni" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="etiFechIni" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="etiMostFechFin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="etiFechFin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="220" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="etiFecha" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiMostTotalPone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etiTotalPone" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNombreInves" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="etiNombreInves" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="etiDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cboTipoPon" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="etiTipoPon" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="etiTitulo">
+        <Component class="javax.swing.JLabel" name="etiMostCiudad">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Titulo:"/>
-            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Ciudad:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="etiFecha">
+        <Component class="javax.swing.JLabel" name="etiMostFechIni">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha:"/>
-            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Fecha de Inicio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="etiNombreInves">
+        <Component class="javax.swing.JLabel" name="etiMostEvento">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre del Investigador:"/>
-            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Evento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="etiDescripcion">
+        <Component class="javax.swing.JLabel" name="etiMostFechFin">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Descripcion:"/>
-            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Fecha de Finalizac&#xed;on:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="etiTipoPon">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo de Ponencia:"/>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtTitulo">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtFecha">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNombreInves">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtDescripcion">
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cboTipoPon">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Precencial"/>
-                <StringItem index="1" value="Videoconferencia"/>
-              </StringArray>
-            </Property>
-          </Properties>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="tablaPonencia">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="5" rowCount="0">
+                    <Column editable="true" title="Titulo" type="java.lang.Object"/>
+                    <Column editable="true" title="Fecha" type="java.lang.Object"/>
+                    <Column editable="true" title="Nombre del Investigador" type="java.lang.Object"/>
+                    <Column editable="true" title="Descripcion" type="java.lang.Object"/>
+                    <Column editable="true" title="Tipo de Ponencias" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="etiMostTotalPone">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total de Ponencias:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiCiudad">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiFechIni">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiEvento">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiFechFin">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiTotalPone">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -405,11 +418,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="btnPagPrincipio" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                   <Component id="btnPagAnterior" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="btnPagSiguiente" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace pref="102" max="32767" attributes="0"/>
                   <Component id="btnPagFinal" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
