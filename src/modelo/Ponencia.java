@@ -4,17 +4,18 @@ package modelo;
  *
  * @author Bogado
  */
-public class Ponencia {
+import java.util.*;
+public class Ponencia implements Comparable<Ponencia> {
 
     private String titulo;
-    //private fecha; // sin usar por el momento
+    private Date fecha;
     private String investigador;
     private String descripcion;
     private String medio;
 
-    public Ponencia(String t, /*f,*/ String in, String des, String m) {
+    public Ponencia(String t, Date f, String in, String des, String m) {
         titulo = t; 
-        //fecha = f;
+        fecha = f;
         descripcion = des;
         medio = m;
     }
@@ -23,9 +24,9 @@ public class Ponencia {
         return titulo;
     }
     
-    /*public       getFecha(){
+    public Date getFecha(){
         return fecha;
-    }*/
+    }
     public String getInvestigador() {
         return investigador;
     }
@@ -42,9 +43,9 @@ public class Ponencia {
         titulo = t;
     }
     
-    /*public     setFecha(      f) {
+    public void setFecha(Date f) {
         fecha = f;
-    }*/
+    }
     
     public void setInvestigador(String in) {
         investigador = in;
@@ -58,5 +59,8 @@ public class Ponencia {
         medio = m;
     }
     
+  public int compareTo(Ponencia p) {
+    return getFecha().compareTo(p.getFecha());
+  }
     
 }
