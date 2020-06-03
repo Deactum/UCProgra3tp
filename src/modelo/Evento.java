@@ -44,9 +44,10 @@ public class Evento {
         this.lista=lista;
     }
     //metodos
-    public void agregarPonencias(String t,String n, String m, String d ){
-        Ponencia o= new Ponencia(t,n,m,d);
+    public void agregarPonencias(String t,Date f,String n, String m, String d ){
+        Ponencia o= new Ponencia(t,f,n,m,d);
         lista.add(o);
+        Collections.sort(lista);
     }
     
     public String toString(){
