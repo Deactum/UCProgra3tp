@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -218,15 +219,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnPagPrincipio.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnPagPrincipio.setText("<<|");
+        btnPagPrincipio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagPrincipioActionPerformed(evt);
+            }
+        });
 
         btnPagAnterior.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnPagAnterior.setText("<<");
+        btnPagAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagAnteriorActionPerformed(evt);
+            }
+        });
 
         btnPagSiguiente.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnPagSiguiente.setText(">>");
+        btnPagSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagSiguienteActionPerformed(evt);
+            }
+        });
 
         btnPagFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnPagFinal.setText("|>>");
+        btnPagFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagFinalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlDatoPagLayout = new javax.swing.GroupLayout(pnlDatoPag);
         pnlDatoPag.setLayout(pnlDatoPagLayout);
@@ -317,22 +338,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 fila[3]=li.get(i).getDescripcion();
                 fila[4]=li.get(i).getMedio();
                 modelo.addRow(fila);
-
             }
             tablaPonencia.setModel(modelo);
         }
         catch(ArrayIndexOutOfBoundsException e){
-             int resp = JOptionPane.showConfirmDialog(null, "Entrada de indice incorrecto", "Alerta!", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
-        }
-        finally{
-            
+            JOptionPane.showConfirmDialog(null, "Entrada de indice incorrecto", "Alerta!", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
         }
     }
     private void actualizarCabecera(){
         etiCiudad.setText(listaE.get(index).getCiudad());
-        etiFechIni.setText(""+listaE.get(index).getFechain());
-        etiFechFin.setText(""+listaE.get(index).getFechafin());
-        
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+        etiFechIni.setText(sdformat.format(listaE.get(index).getFechain()));
+        etiFechFin.setText(sdformat.format(listaE.get(index).getFechafin())); 
     }
     private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
         AgregarEvento ae = new AgregarEvento(this, true);
@@ -356,6 +373,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         BorrarPonencia bp = new BorrarPonencia(this, true);
         bp.setVisible(true);
     }//GEN-LAST:event_btnBorrarPonActionPerformed
+
+    private void btnPagPrincipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagPrincipioActionPerformed
+        //FUNCIONALIDAD TEMPORAL
+        actualizarCabecera();
+        actualizarLista();
+    }//GEN-LAST:event_btnPagPrincipioActionPerformed
+
+    private void btnPagAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagAnteriorActionPerformed
+        //FUNCIONALIDAD TEMPORAL
+        actualizarCabecera();
+        actualizarLista();
+    }//GEN-LAST:event_btnPagAnteriorActionPerformed
+
+    private void btnPagSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagSiguienteActionPerformed
+        //FUNCIONALIDAD TEMPORAL
+        actualizarCabecera();
+        actualizarLista();
+    }//GEN-LAST:event_btnPagSiguienteActionPerformed
+
+    private void btnPagFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagFinalActionPerformed
+        //FUNCIONALIDAD TEMPORAL
+        actualizarCabecera();
+        actualizarLista();
+    }//GEN-LAST:event_btnPagFinalActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
