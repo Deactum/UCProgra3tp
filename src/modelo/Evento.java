@@ -49,6 +49,9 @@ public class Evento {
         lista.add(o);
         Collections.sort(lista);
     }
+    public void borrarPonencia(int index){
+        lista.remove(index);
+    }
     
     public String toString(){
         StringBuilder srt = new StringBuilder("Eventos");

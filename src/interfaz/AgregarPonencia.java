@@ -166,6 +166,7 @@ public class AgregarPonencia extends javax.swing.JDialog {
         nomInves = txtNomInvestigador.getText();
         descrip = txtDescripcion.getText();
         tipoPone = cboTipoPonencia.getSelectedItem().toString();
+        dispose();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     public static void main(String args[]) {

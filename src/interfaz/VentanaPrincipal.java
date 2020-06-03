@@ -258,11 +258,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnPagPrincipio, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(106, 106, 106)
                 .addComponent(btnPagAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addComponent(btnPagSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(80, 80, 80)
                 .addComponent(btnPagFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPagSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         pnlDatoPagLayout.setVerticalGroup(
             pnlDatoPagLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,38 +362,52 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnEliminarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEveActionPerformed
         EliminarEvento ee = new EliminarEvento(this, true);
         ee.setVisible(true);
+        listaE.remove(index);
+        index=0;
+        actualizarLista();
+        actualizarCabecera();
     }//GEN-LAST:event_btnEliminarEveActionPerformed
 
     private void btnAgregarPonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPonActionPerformed
         AgregarPonencia ap = new AgregarPonencia(this, true);
         ap.setVisible(true);
+        listaE.get(index).agregarPonencias(ap.getTitulo(), ap.getFecha(),ap.getNomInves(), ap.getDescrip(),ap.getTipoPone());
+        actualizarLista();
+        actualizarCabecera();
     }//GEN-LAST:event_btnAgregarPonActionPerformed
 
     private void btnBorrarPonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarPonActionPerformed
         BorrarPonencia bp = new BorrarPonencia(this, true);
         bp.setVisible(true);
+        listaE.get(index).borrarPonencia(tablaPonencia.getSelectedRow());
+        actualizarLista();
+        actualizarCabecera();
     }//GEN-LAST:event_btnBorrarPonActionPerformed
 
     private void btnPagPrincipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagPrincipioActionPerformed
         //FUNCIONALIDAD TEMPORAL
+        index=0;
         actualizarCabecera();
         actualizarLista();
     }//GEN-LAST:event_btnPagPrincipioActionPerformed
 
     private void btnPagAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagAnteriorActionPerformed
         //FUNCIONALIDAD TEMPORAL
+        index-=1;
         actualizarCabecera();
         actualizarLista();
     }//GEN-LAST:event_btnPagAnteriorActionPerformed
 
     private void btnPagSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagSiguienteActionPerformed
         //FUNCIONALIDAD TEMPORAL
+        index+=1;
         actualizarCabecera();
         actualizarLista();
     }//GEN-LAST:event_btnPagSiguienteActionPerformed
 
     private void btnPagFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagFinalActionPerformed
         //FUNCIONALIDAD TEMPORAL
+        index= listaE.size();
         actualizarCabecera();
         actualizarLista();
     }//GEN-LAST:event_btnPagFinalActionPerformed
