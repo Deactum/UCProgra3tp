@@ -8,10 +8,10 @@ package modelo;
 import java.util.*;
 public class Evento {
     private String ciudad;
-    private int fechain;
-    private int fechafin;
+    private Date fechain;
+    private Date fechafin;
     private ArrayList<Ponencia>lista;
-    public Evento(String c,int in,int fin){
+    public Evento(String c,Date in,Date fin){
         lista = new ArrayList();
         ciudad= c;
         fechain=in;
@@ -21,10 +21,10 @@ public class Evento {
     public String getCiudad(){
         return ciudad;
     }
-    public int getFechain(){
+    public Date getFechain(){
         return fechain;
     }
-    public int getFechafin(){
+    public Date getFechafin(){
         return fechafin;
     }
     public ArrayList<Ponencia> getLista(){
@@ -34,10 +34,10 @@ public class Evento {
     public void setCiudad(String ciudad){
         this.ciudad=ciudad;
     }
-    public void setFechain(int fechain){
+    public void setFechain(Date fechain){
         this.fechain= fechain;
     }
-    public void setFechafin(int fechafin){
+    public void setFechafin(Date fechafin){
         this.fechain=fechafin;
     }
     public void setLista(ArrayList<Ponencia> lista){
