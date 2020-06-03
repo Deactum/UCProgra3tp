@@ -1,16 +1,18 @@
 package interfaz;
 
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Enzo
+ * @author Enzo, dfleitas
  */
-
 public class AgregarEvento extends javax.swing.JDialog {
-private String c;
-private Date inicio;
-private Date fin;
+
+    private String c;
+    private Date inicio;
+    private Date fin;
+
     public AgregarEvento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -39,12 +41,6 @@ private Date fin;
         jLabel2.setText("Fecha de inicio");
 
         jLabel3.setText("Fecha de Finalzacion");
-
-        txtCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCiudadActionPerformed(evt);
-            }
-        });
 
         btnAceptar.setText("Acepta");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,15 +91,15 @@ private Date fin;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jdInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jdInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jdFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jdFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar))
@@ -125,20 +121,18 @@ private Date fin;
         return fin;
     }
 
-    private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCiudadActionPerformed
-
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
-        c=txtCiudad.getText();
-        inicio=jdInicio.getDate();
-        fin=jdInicio.getDate();
-        dispose();
+        if ("".equals(txtCiudad.getText()) || jdInicio.getDate() == null || jdFin.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Un campo esta vacio.");
+        } else {
+            c = txtCiudad.getText();
+            inicio = jdInicio.getDate();
+            fin = jdFin.getDate();
+            dispose();
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
