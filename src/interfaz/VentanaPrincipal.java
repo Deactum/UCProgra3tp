@@ -19,8 +19,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         spdBarra = new javax.swing.JSeparator();
         etiTItuloPrincipal = new javax.swing.JLabel();
         pnlEvento = new javax.swing.JPanel();
-        etiCiudade = new javax.swing.JLabel();
-        cboCiudad = new javax.swing.JComboBox<>();
         btnAgregarEve = new javax.swing.JButton();
         btnEliminarEve = new javax.swing.JButton();
         pnlPonencia = new javax.swing.JPanel();
@@ -29,14 +27,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pnlDatos = new javax.swing.JPanel();
         etiMostCiudad = new javax.swing.JLabel();
         etiMostFechIni = new javax.swing.JLabel();
-        etiMostEvento = new javax.swing.JLabel();
         etiMostFechFin = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPonencia = new javax.swing.JTable();
         etiMostTotalPone = new javax.swing.JLabel();
         etiCiudad = new javax.swing.JLabel();
         etiFechIni = new javax.swing.JLabel();
-        etiEvento = new javax.swing.JLabel();
         etiFechFin = new javax.swing.JLabel();
         etiTotalPone = new javax.swing.JLabel();
         pnlDatoPag = new javax.swing.JPanel();
@@ -54,11 +50,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pnlEvento.setBorder(javax.swing.BorderFactory.createTitledBorder("Evento"));
         pnlEvento.setToolTipText("");
-
-        etiCiudade.setText("Ciudad:");
-        etiCiudade.setFocusable(false);
-
-        cboCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asunción", "Ciudad del Este", "Luque", "San Lorenzo", "Capiatá", "Lambaré", "Fernando de la Mora", "Limpio", "Ñemby", "Encarnación", "Caaguazú", "Coronel Oviedo", "Pedro Juan Caballero", "Itauguá", "Mariano Roque Alonso", "Presidente Franco", "Minga Guazú", "Concepción", "Itá", "Villa Elisa" }));
 
         btnAgregarEve.setText("Agregar Evento");
         btnAgregarEve.addActionListener(new java.awt.event.ActionListener() {
@@ -81,26 +72,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEventoLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(pnlEventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnEliminarEve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAgregarEve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlEventoLayout.createSequentialGroup()
-                        .addComponent(etiCiudade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addComponent(cboCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnEliminarEve, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                    .addComponent(btnAgregarEve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(46, 46, 46))
         );
         pnlEventoLayout.setVerticalGroup(
             pnlEventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEventoLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(pnlEventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cboCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiCiudade))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(btnAgregarEve, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(btnEliminarEve, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(45, 45, 45))
         );
 
         pnlPonencia.setBorder(javax.swing.BorderFactory.createTitledBorder("Ponencia"));
@@ -146,8 +129,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         etiMostFechIni.setText("Fecha de Inicio:");
 
-        etiMostEvento.setText("Evento:");
-
         etiMostFechFin.setText("Fecha de Finalizacíon:");
 
         tablaPonencia.setModel(new javax.swing.table.DefaultTableModel(
@@ -166,8 +147,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         etiFechIni.setText("X");
 
-        etiEvento.setText("X");
-
         etiFechFin.setText("X");
 
         etiTotalPone.setText("X");
@@ -181,7 +160,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                         .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,13 +171,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(etiCiudad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(etiFechIni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(73, 73, 73)
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etiMostFechFin)
-                            .addComponent(etiMostEvento))
+                        .addComponent(etiMostFechFin)
                         .addGap(18, 18, 18)
-                        .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(etiFechFin, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(etiEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(etiFechFin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                         .addComponent(etiMostTotalPone)
@@ -212,9 +187,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiMostCiudad)
-                    .addComponent(etiMostEvento)
-                    .addComponent(etiCiudad)
-                    .addComponent(etiEvento))
+                    .addComponent(etiCiudad))
                 .addGap(18, 18, 18)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,7 +230,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnPagAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
                 .addComponent(btnPagSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnPagFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -381,14 +354,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPagFinal;
     private javax.swing.JButton btnPagPrincipio;
     private javax.swing.JButton btnPagSiguiente;
-    private javax.swing.JComboBox<String> cboCiudad;
     private javax.swing.JLabel etiCiudad;
-    private javax.swing.JLabel etiCiudade;
-    private javax.swing.JLabel etiEvento;
     private javax.swing.JLabel etiFechFin;
     private javax.swing.JLabel etiFechIni;
     private javax.swing.JLabel etiMostCiudad;
-    private javax.swing.JLabel etiMostEvento;
     private javax.swing.JLabel etiMostFechFin;
     private javax.swing.JLabel etiMostFechIni;
     private javax.swing.JLabel etiMostTotalPone;
