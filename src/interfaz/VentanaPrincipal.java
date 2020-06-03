@@ -10,7 +10,7 @@ import modelo.*;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     private ArrayList<Evento> listaE;
-    private int index;
+    private int index =0;
 
     public VentanaPrincipal() {
         initComponents();
@@ -328,10 +328,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             
         }
     }
-    
+    private void actualizarCabecera(){
+        etiCiudad.setText(listaE.get(index).getCiudad());
+        etiFechIni.setText(""+listaE.get(index).getFechain());
+        etiFechFin.setText(""+listaE.get(index).getFechafin());
+        
+    }
     private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
         AgregarEvento ae = new AgregarEvento(this, true);
         ae.setVisible(true);
+        Evento e = new Evento(ae.getC(),ae.getInicio(),ae.getFin());
+        listaE.add(e);
+        actualizarCabecera();
     }//GEN-LAST:event_btnAgregarEveActionPerformed
 
     private void btnEliminarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEveActionPerformed
