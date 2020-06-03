@@ -3,15 +3,18 @@ package interfaz;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_OPTION;
 import javax.swing.table.DefaultTableModel;
 import modelo.*;
+
 /**
  *
  * @author Enzo
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+
     private ArrayList<Evento> listaE;
-    private int index =0;
+    private int index = 0;
 
     public VentanaPrincipal() {
         initComponents();
@@ -151,12 +154,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         etiMostTotalPone.setText("Total de Ponencias:");
 
-        etiCiudad.setText("X");
-
-        etiFechIni.setText("X");
-
-        etiFechFin.setText("X");
-
         etiTotalPone.setText("X");
 
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
@@ -195,17 +192,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDatosLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiMostCiudad)
-                    .addComponent(etiCiudad))
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiMostCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(etiMostFechIni)
-                        .addComponent(etiFechIni))
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiMostFechIni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(etiMostFechFin)
-                        .addComponent(etiFechFin)))
+                        .addComponent(etiFechFin, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(etiFechIni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -256,13 +252,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(pnlDatoPagLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(btnPagPrincipio, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
+                .addGap(100, 100, 100)
                 .addComponent(btnPagAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(btnPagFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnPagSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(94, 94, 94)
+                .addComponent(btnPagFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         pnlDatoPagLayout.setVerticalGroup(
             pnlDatoPagLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,93 +319,122 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        private void actualizarLista() {
-        try{
-            String titulos[]= {"Titulo","Fecha","Nombre del Investigador","Descripcion","Tipo de Ponencia"};
-            DefaultTableModel modelo = new DefaultTableModel(null,titulos);
-            ArrayList<Ponencia> li= new ArrayList();
-            li=listaE.get(index).getLista();
+    private void actualizarLista() {
+        try {
+            String titulos[] = {"Titulo", "Fecha", "Nombre del Investigador", "Descripcion", "Tipo de Ponencia"};
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ArrayList<Ponencia> li = new ArrayList();
+            SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+            li = listaE.get(index).getLista();
             modelo.setRowCount(0);
-            Object fila[]= new Object[tablaPonencia.getColumnCount()];
-            for(int i=0;i<li.size();i++){
-                fila[0]= li.get(i).getTitulo();
-                fila[1]= li.get(i).getFecha();
-                fila[2]= ""+li.get(i).getInvestigador();
-                fila[3]=li.get(i).getDescripcion();
-                fila[4]=li.get(i).getMedio();
+            Object fila[] = new Object[tablaPonencia.getColumnCount()];
+            for (int i = 0; i < li.size(); i++) {
+                fila[0] = li.get(i).getTitulo();
+                fila[1] = sdformat.format(li.get(i).getFecha());
+                fila[2] = li.get(i).getInvestigador();
+                fila[3] = li.get(i).getDescripcion();
+                fila[4] = li.get(i).getMedio();
                 modelo.addRow(fila);
             }
             tablaPonencia.setModel(modelo);
-        }
-        catch(ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showConfirmDialog(null, "Entrada de indice incorrecto", "Alerta!", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
         }
     }
-    private void actualizarCabecera(){
+
+    private void actualizarCabecera() {
         etiCiudad.setText(listaE.get(index).getCiudad());
         SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
         etiFechIni.setText(sdformat.format(listaE.get(index).getFechain()));
-        etiFechFin.setText(sdformat.format(listaE.get(index).getFechafin())); 
+        etiFechFin.setText(sdformat.format(listaE.get(index).getFechafin()));
     }
     private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
         AgregarEvento ae = new AgregarEvento(this, true);
         ae.setVisible(true);
-        Evento e = new Evento(ae.getC(),ae.getInicio(),ae.getFin());
+        Evento e = new Evento(ae.getC(), ae.getInicio(), ae.getFin());
         listaE.add(e);
         actualizarCabecera();
     }//GEN-LAST:event_btnAgregarEveActionPerformed
 
     private void btnEliminarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEveActionPerformed
-        EliminarEvento ee = new EliminarEvento(this, true);
-        ee.setVisible(true);
-        listaE.remove(index);
-        index=0;
-        actualizarLista();
-        actualizarCabecera();
+        if (listaE.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe un evento para eliminar");
+        } else {
+            if (JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar el evento de " + listaE.get(index).getCiudad() + "?", "Eliminar evento", JOptionPane.YES_NO_OPTION) == YES_OPTION) {
+                listaE.remove(index);
+                index = 0;
+                actualizarLista();
+                actualizarCabecera();
+            }
+        }
     }//GEN-LAST:event_btnEliminarEveActionPerformed
 
     private void btnAgregarPonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPonActionPerformed
-        AgregarPonencia ap = new AgregarPonencia(this, true);
-        ap.setVisible(true);
-        listaE.get(index).agregarPonencias(ap.getTitulo(), ap.getFecha(),ap.getNomInves(), ap.getDescrip(),ap.getTipoPone());
-        actualizarLista();
-        actualizarCabecera();
+        if (listaE.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe un evento para agregar una ponencia");
+        } else {
+            AgregarPonencia ap = new AgregarPonencia(this, true);
+            ap.setVisible(true);
+            listaE.get(index).agregarPonencias(ap.getTitulo(), ap.getFecha(), ap.getNomInves(), ap.getDescrip(), ap.getTipoPone());
+            actualizarLista();
+            actualizarCabecera();
+        }
     }//GEN-LAST:event_btnAgregarPonActionPerformed
 
     private void btnBorrarPonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarPonActionPerformed
-        BorrarPonencia bp = new BorrarPonencia(this, true);
-        bp.setVisible(true);
-        listaE.get(index).borrarPonencia(tablaPonencia.getSelectedRow());
-        actualizarLista();
-        actualizarCabecera();
+        if (listaE.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe un evento para eliminar una ponencia");
+        } else {
+            if(tablaPonencia.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(null, "No has seleccionado ninguna ponencia");
+                return;
+            }
+            if (JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar esta Ponencia?", "Eliminar ponencia", JOptionPane.YES_NO_OPTION) == YES_OPTION) {
+                listaE.get(index).borrarPonencia(tablaPonencia.getSelectedRow());
+                actualizarLista();
+                actualizarCabecera();
+            }
+        }
     }//GEN-LAST:event_btnBorrarPonActionPerformed
 
     private void btnPagPrincipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagPrincipioActionPerformed
-        //FUNCIONALIDAD TEMPORAL
-        index=0;
-        actualizarCabecera();
-        actualizarLista();
+        if (listaE.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
+        } else {
+            index = 0;
+            actualizarCabecera();
+            actualizarLista();
+        }
     }//GEN-LAST:event_btnPagPrincipioActionPerformed
 
     private void btnPagAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagAnteriorActionPerformed
-        //FUNCIONALIDAD TEMPORAL
-        index-=1;
-        actualizarCabecera();
-        actualizarLista();
+        if (listaE.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
+        } else {
+            index -= 1;
+            actualizarCabecera();
+            actualizarLista();
+        }
     }//GEN-LAST:event_btnPagAnteriorActionPerformed
 
     private void btnPagSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagSiguienteActionPerformed
-        //FUNCIONALIDAD TEMPORAL
-        index+=1;
-        actualizarCabecera();
-        actualizarLista();
+        if (listaE.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
+        } else {
+            index += 1;
+            actualizarCabecera();
+            actualizarLista();
+        }
     }//GEN-LAST:event_btnPagSiguienteActionPerformed
 
     private void btnPagFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagFinalActionPerformed
-        //FUNCIONALIDAD TEMPORAL
-        index= listaE.size();
-        actualizarCabecera();
-        actualizarLista();
+        if (listaE.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
+        } else {
+            index = listaE.size();
+            actualizarCabecera();
+            actualizarLista();
+        }
     }//GEN-LAST:event_btnPagFinalActionPerformed
 
     public static void main(String args[]) {

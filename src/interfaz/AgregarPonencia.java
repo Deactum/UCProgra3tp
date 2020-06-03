@@ -1,13 +1,14 @@
 package interfaz;
 
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Enzo
  */
 public class AgregarPonencia extends javax.swing.JDialog {
-    
+
     private String titulo;
     private Date fecha;
     private String nomInves;
@@ -20,7 +21,7 @@ public class AgregarPonencia extends javax.swing.JDialog {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-    
+
     public String getTitulo() {
         return titulo;
     }
@@ -28,15 +29,15 @@ public class AgregarPonencia extends javax.swing.JDialog {
     public Date getFecha() {
         return fecha;
     }
-    
+
     public String getNomInves() {
         return nomInves;
     }
-    
+
     public String getDescrip() {
         return descrip;
     }
-    
+
     public String getTipoPone() {
         return tipoPone;
     }
@@ -49,12 +50,12 @@ public class AgregarPonencia extends javax.swing.JDialog {
         btnCancelar = new javax.swing.JButton();
         etiTitulo = new javax.swing.JLabel();
         etiFecha = new javax.swing.JLabel();
-        etiNomInvestigador = new javax.swing.JLabel();
+        etiNomInves = new javax.swing.JLabel();
         etiDescripcion = new javax.swing.JLabel();
         etiTipoPonencia = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
         jdFecha = new com.toedter.calendar.JDateChooser();
-        txtNomInvestigador = new javax.swing.JTextField();
+        txtNomInves = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
         cboTipoPonencia = new javax.swing.JComboBox<>();
 
@@ -79,7 +80,7 @@ public class AgregarPonencia extends javax.swing.JDialog {
 
         etiFecha.setText("Fecha");
 
-        etiNomInvestigador.setText("Nombre del Investigador");
+        etiNomInves.setText("Nombre del Investigador");
 
         etiDescripcion.setText("Descripcíon");
 
@@ -109,7 +110,7 @@ public class AgregarPonencia extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etiFecha)
-                            .addComponent(etiNomInvestigador)
+                            .addComponent(etiNomInves)
                             .addComponent(etiDescripcion)
                             .addComponent(etiTitulo))
                         .addGap(18, 18, 18)
@@ -117,7 +118,7 @@ public class AgregarPonencia extends javax.swing.JDialog {
                             .addComponent(jdFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNomInvestigador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNomInves, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -136,8 +137,8 @@ public class AgregarPonencia extends javax.swing.JDialog {
                     .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiNomInvestigador)
-                    .addComponent(txtNomInvestigador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(etiNomInves)
+                    .addComponent(txtNomInves, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiDescripcion)
@@ -161,12 +162,16 @@ public class AgregarPonencia extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        titulo = txtTitulo.getText();
-        fecha = jdFecha.getDate();
-        nomInves = txtNomInvestigador.getText();
-        descrip = txtDescripcion.getText();
-        tipoPone = cboTipoPonencia.getSelectedItem().toString();
-        dispose();
+        if ("".equals(txtTitulo.getText()) || jdFecha.getDate() == null || "".equals(txtNomInves.getText()) || "".equals(txtDescripcion.getText()) ) {
+            JOptionPane.showMessageDialog(null, "Un campo esta vacio.");
+        } else {
+            titulo = txtTitulo.getText();
+            fecha = jdFecha.getDate();
+            nomInves = txtNomInves.getText();
+            descrip = txtDescripcion.getText();
+            tipoPone = cboTipoPonencia.getSelectedItem().toString();
+            dispose();
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     public static void main(String args[]) {
@@ -213,12 +218,12 @@ public class AgregarPonencia extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> cboTipoPonencia;
     private javax.swing.JLabel etiDescripcion;
     private javax.swing.JLabel etiFecha;
-    private javax.swing.JLabel etiNomInvestigador;
+    private javax.swing.JLabel etiNomInves;
     private javax.swing.JLabel etiTipoPonencia;
     private javax.swing.JLabel etiTitulo;
     private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtNomInvestigador;
+    private javax.swing.JTextField txtNomInves;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

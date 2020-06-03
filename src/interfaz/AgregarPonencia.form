@@ -46,7 +46,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="etiFecha" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="etiNomInvestigador" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="etiNomInves" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="etiDescripcion" min="-2" max="-2" attributes="0"/>
                           <Component id="etiTitulo" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -55,7 +55,7 @@
                           <Component id="jdFecha" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNomInvestigador" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="txtNomInves" min="-2" pref="150" max="-2" attributes="0"/>
                                   <Component id="txtTitulo" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                   <Component id="txtDescripcion" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                               </Group>
@@ -83,8 +83,8 @@
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="etiNomInvestigador" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNomInvestigador" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiNomInves" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNomInves" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -133,7 +133,7 @@
         <Property name="text" type="java.lang.String" value="Fecha"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="etiNomInvestigador">
+    <Component class="javax.swing.JLabel" name="etiNomInves">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre del Investigador"/>
       </Properties>
@@ -152,7 +152,7 @@
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jdFecha">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNomInvestigador">
+    <Component class="javax.swing.JTextField" name="txtNomInves">
     </Component>
     <Component class="javax.swing.JTextField" name="txtDescripcion">
     </Component>

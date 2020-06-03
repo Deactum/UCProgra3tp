@@ -16,6 +16,7 @@ public class Ponencia implements Comparable<Ponencia> {
     public Ponencia(String t, Date f, String in, String des, String m) {
         titulo = t; 
         fecha = f;
+        investigador = in;
         descripcion = des;
         medio = m;
     }

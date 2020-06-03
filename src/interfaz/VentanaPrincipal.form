@@ -250,20 +250,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="etiMostCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="etiCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="etiMostCiudad" max="32767" attributes="0"/>
+                      <Component id="etiCiudad" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="etiMostFechIni" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="etiFechIni" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="etiMostFechIni" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="etiMostFechFin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="etiFechFin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="etiFechFin" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="etiFechIni" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="220" max="-2" attributes="0"/>
@@ -353,19 +351,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="etiCiudad">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="X"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="etiFechIni">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="X"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="etiFechFin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="X"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="etiTotalPone">
           <Properties>
@@ -389,13 +378,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="btnPagPrincipio" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="btnPagAnterior" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="btnPagFinal" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnPagSiguiente" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace pref="155" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                  <Component id="btnPagFinal" min="-2" pref="90" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
