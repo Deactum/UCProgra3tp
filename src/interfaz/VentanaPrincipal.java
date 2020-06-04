@@ -431,7 +431,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (listaE.isEmpty()) {
             JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
         } else {
-            index = listaE.size();
+            index = listaE.size()-1;
             actualizarCabecera();
             actualizarLista();
         }
