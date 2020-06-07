@@ -10,9 +10,9 @@ import java.io.*;
 
 /**
  *
- * @author Enzo
+ * @author Enzo, dfleitas
  */
-public class VentanaPrincipal extends javax.swing.JFrame implements Serializable  {
+public class VentanaPrincipal extends javax.swing.JFrame implements Serializable {
 
     private ArrayList<Evento> listaE;
     private int index = 0;
@@ -156,8 +156,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
 
         etiMostTotalPone.setText("Total de Ponencias:");
 
-        etiTotalPone.setText("X");
-
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
         pnlDatosLayout.setHorizontalGroup(
@@ -192,7 +190,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         );
         pnlDatosLayout.setVerticalGroup(
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDatosLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(etiMostCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -206,11 +204,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                     .addComponent(etiFechIni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiMostTotalPone)
-                    .addComponent(etiTotalPone))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiTotalPone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiMostTotalPone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         pnlDatoPag.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -315,41 +313,40 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                         .addComponent(pnlEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pnlPonencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    public void leerDatos(){
-        try{
+
+    public void leerDatos() {
+        try {
             ObjectInputStream leerFichero = new ObjectInputStream(new FileInputStream("Datos.dat"));
-            listaE=(ArrayList) leerFichero.readObject();
+            listaE = (ArrayList) leerFichero.readObject();
             leerFichero.close();
-            index=0;
             actualizarCabecera();
             actualizarLista();
-        }catch(IOException e){
-            System.out.println("Error"+e.getMessage());
-        }catch(ClassNotFoundException e){
-            System.out.println("Error"+e.getMessage());
-        }catch(Exception e){
-            System.out.println("Error"+e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Error" + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error" + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error" + e.getMessage());
         }
     }
-    public void copiarDatos(){
-        try{
-         ObjectOutputStream escribiendoFichero = new ObjectOutputStream(new FileOutputStream("Datos.dat"));
-         escribiendoFichero.writeObject(listaE);
-         escribiendoFichero.close();
-        }catch(IOException e){
-            System.out.println("Error"+e.getMessage());
-        }catch(Exception e){
-            System.out.println("Error"+e.getMessage());
-        }finally{
-            
+
+    public void copiarDatos() {
+        try {
+            ObjectOutputStream escribiendoFichero = new ObjectOutputStream(new FileOutputStream("Datos.dat"));
+            escribiendoFichero.writeObject(listaE);
+            escribiendoFichero.close();
+        } catch (IOException e) {
+            System.out.println("Error" + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error" + e.getMessage());
         }
     }
+
     private void actualizarLista() {
         try {
             String titulos[] = {"Titulo", "Fecha", "Nombre del Investigador", "Descripcion", "Tipo de Ponencia"};
@@ -368,6 +365,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                 modelo.addRow(fila);
             }
             tablaPonencia.setModel(modelo);
+            etiTotalPone.setText(""+tablaPonencia.getRowCount());
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showConfirmDialog(null, "Entrada de indice incorrecto", "Alerta!", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
         }
@@ -378,6 +376,18 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
         etiFechIni.setText(sdformat.format(listaE.get(index).getFechain()));
         etiFechFin.setText(sdformat.format(listaE.get(index).getFechafin()));
+    }
+
+    private void limpiarDatos() {
+        //Limpiar las etiquetas
+        etiCiudad.setText("");
+        etiFechIni.setText("");
+        etiFechFin.setText("");
+        //Limpiar la tabla
+        String titulos[] = {"Titulo", "Fecha", "Nombre del Investigador", "Descripcion", "Tipo de Ponencia"};
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        tablaPonencia.setModel(modelo);
+        etiTotalPone.setText("");
     }
     private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
         AgregarEvento ae = new AgregarEvento(this, true);
@@ -395,8 +405,12 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
             if (JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar el evento de " + listaE.get(index).getCiudad() + "?", "Eliminar evento", JOptionPane.YES_NO_OPTION) == YES_OPTION) {
                 listaE.remove(index);
                 index = 0;
-                actualizarLista();
-                actualizarCabecera();
+                if (listaE.isEmpty()) {
+                    limpiarDatos();
+                } else {
+                    actualizarLista();
+                    actualizarCabecera();
+                }
                 copiarDatos();
             }
         }
@@ -419,14 +433,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         if (listaE.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No existe un evento para eliminar una ponencia");
         } else {
-            if(tablaPonencia.getSelectedRow() == -1){
+            if (tablaPonencia.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(null, "No has seleccionado ninguna ponencia");
                 return;
             }
             if (JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar esta Ponencia?", "Eliminar ponencia", JOptionPane.YES_NO_OPTION) == YES_OPTION) {
                 listaE.get(index).borrarPonencia(tablaPonencia.getSelectedRow());
                 actualizarLista();
-                actualizarCabecera();
                 copiarDatos();
             }
         }
@@ -446,9 +459,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         if (listaE.isEmpty()) {
             JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
         } else {
-            index -= 1;
-            actualizarCabecera();
-            actualizarLista();
+            if (index > 0) {
+                index -= 1;
+                actualizarCabecera();
+                actualizarLista();
+            }
         }
     }//GEN-LAST:event_btnPagAnteriorActionPerformed
 
@@ -456,9 +471,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         if (listaE.isEmpty()) {
             JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
         } else {
-            index += 1;
-            actualizarCabecera();
-            actualizarLista();
+            if (index != listaE.size()-1) {
+                index += 1;
+                actualizarCabecera();
+                actualizarLista();
+            }
         }
     }//GEN-LAST:event_btnPagSiguienteActionPerformed
 
@@ -466,7 +483,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         if (listaE.isEmpty()) {
             JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
         } else {
-            index = listaE.size()-1;
+            index = listaE.size() - 1;
             actualizarCabecera();
             actualizarLista();
         }
