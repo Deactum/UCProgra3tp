@@ -326,7 +326,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
             ObjectInputStream leerFichero = new ObjectInputStream(new FileInputStream("Datos.dat"));
             listaE=(ArrayList) leerFichero.readObject();
             leerFichero.close();
-            System.out.println(listaE);
+            index=0;
+            actualizarCabecera();
+            actualizarLista();
         }catch(IOException e){
             System.out.println("Error"+e.getMessage());
         }catch(ClassNotFoundException e){
