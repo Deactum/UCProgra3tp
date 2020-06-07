@@ -6,7 +6,8 @@ package modelo;
  * @author dfleitas
  */
 import java.util.*;
-public class Evento {
+import java.io.*;
+public class Evento implements Serializable  {
     private String ciudad;
     private Date fechain;
     private Date fechafin;

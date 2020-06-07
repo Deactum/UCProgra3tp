@@ -5,7 +5,8 @@ package modelo;
  * @author Bogado
  */
 import java.util.*;
-public class Ponencia implements Comparable<Ponencia> {
+import java.io.*;
+public class Ponencia implements Comparable<Ponencia>,Serializable {
 
     private String titulo;
     private Date fecha;
