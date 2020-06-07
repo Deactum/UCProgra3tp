@@ -6,12 +6,13 @@ import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.YES_OPTION;
 import javax.swing.table.DefaultTableModel;
 import modelo.*;
+import java.io.*;
 
 /**
  *
  * @author Enzo
  */
-public class VentanaPrincipal extends javax.swing.JFrame {
+public class VentanaPrincipal extends javax.swing.JFrame implements Serializable  {
 
     private ArrayList<Evento> listaE;
     private int index = 0;
@@ -21,6 +22,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         listaE = new ArrayList();
         setResizable(false);
         setLocationRelativeTo(null);
+        leerDatos();
     }
 
     @SuppressWarnings("unchecked")
@@ -318,7 +320,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void leerDatos(){
+        try{
+            ObjectInputStream leerFichero = new ObjectInputStream(new FileInputStream("Datos.dat"));
+            listaE=(ArrayList) leerFichero.readObject();
+            leerFichero.close();
+            System.out.println(listaE);
+        }catch(IOException e){
+            System.out.println("Error"+e.getMessage());
+        }catch(ClassNotFoundException e){
+            System.out.println("Error"+e.getMessage());
+        }catch(Exception e){
+            System.out.println("Error"+e.getMessage());
+        }
+    }
+    public void copiarDatos(){
+        try{
+         ObjectOutputStream escribiendoFichero = new ObjectOutputStream(new FileOutputStream("Datos.dat"));
+         escribiendoFichero.writeObject(listaE);
+         escribiendoFichero.close();
+        }catch(IOException e){
+            System.out.println("Error"+e.getMessage());
+        }catch(Exception e){
+            System.out.println("Error"+e.getMessage());
+        }finally{
+            
+        }
+    }
     private void actualizarLista() {
         try {
             String titulos[] = {"Titulo", "Fecha", "Nombre del Investigador", "Descripcion", "Tipo de Ponencia"};
@@ -354,6 +383,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Evento e = new Evento(ae.getC(), ae.getInicio(), ae.getFin());
         listaE.add(e);
         actualizarCabecera();
+        copiarDatos();
     }//GEN-LAST:event_btnAgregarEveActionPerformed
 
     private void btnEliminarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEveActionPerformed
@@ -365,6 +395,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 index = 0;
                 actualizarLista();
                 actualizarCabecera();
+                copiarDatos();
             }
         }
     }//GEN-LAST:event_btnEliminarEveActionPerformed
@@ -378,6 +409,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             listaE.get(index).agregarPonencias(ap.getTitulo(), ap.getFecha(), ap.getNomInves(), ap.getDescrip(), ap.getTipoPone());
             actualizarLista();
             actualizarCabecera();
+            copiarDatos();
         }
     }//GEN-LAST:event_btnAgregarPonActionPerformed
 
@@ -393,6 +425,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 listaE.get(index).borrarPonencia(tablaPonencia.getSelectedRow());
                 actualizarLista();
                 actualizarCabecera();
+                copiarDatos();
             }
         }
     }//GEN-LAST:event_btnBorrarPonActionPerformed
