@@ -410,6 +410,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
     public Evento getEvento(int i) {
         return listaE.get(i);
     }
+    
+    public ArrayList<Evento> getListaEve(){
+        return listaE;
+    }
     private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
         AgregarEvento ae = new AgregarEvento(this, true);
         ae.setVisible(true);

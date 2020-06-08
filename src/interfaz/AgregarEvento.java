@@ -1,8 +1,11 @@
 package interfaz;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import modelo.Evento;
 
 /**
  *
@@ -121,8 +124,8 @@ public class AgregarEvento extends javax.swing.JDialog {
     public Date getFin() {
         return fin;
     }
-    
-    private int checkFechaCorrecta(){
+
+    private int checkFechaCorrecta() {
         int count = -1;
         Calendar cal = Calendar.getInstance();
         cal.setTime(jdInicio.getDate());
@@ -133,16 +136,57 @@ public class AgregarEvento extends javax.swing.JDialog {
         return count;
     }
 
+    private boolean checkFechaEventos() {
+        boolean estado = true;
+        VentanaPrincipal vp = new VentanaPrincipal();
+        ArrayList<Evento> lis = vp.getListaEve();
+        //Formato y Fechas de inicio y fin del nuevo evento
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+        Date DateI = jdInicio.getDate();
+        Date DateF = jdFin.getDate();
+        //Calendario del evento nuevo
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(DateI);
+        while (cal1.getTime().before(DateF)) {
+            cal1.add(Calendar.DATE, 1);
+            for (Evento e : lis) {
+                //Sacar fechas de un evento en la lista
+                Date desdeDate = e.getFechain();
+                Date hastaDate = e.getFechafin();
+                //Crear calendar
+                Calendar cal2 = Calendar.getInstance();
+                cal2.setTime(desdeDate);
+                //Buscar fechas
+                if (sdformat.format(desdeDate).equals(sdformat.format(cal1.getTime()))) {
+                    estado = false;
+                    return estado;
+                }
+                while (cal2.getTime().before(hastaDate)) {
+                    cal2.add(Calendar.DATE, 1);
+                    if (sdformat.format(cal2.getTime()).equals(sdformat.format(cal1.getTime()))) {
+                        estado = false;
+                        break;
+                    }
+                }
+            }
+        }
+        return estado;
+    }
+
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if ("".equals(txtCiudad.getText()) || jdInicio.getDate() == null || jdFin.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Un campo esta vacio.");
-        } else if(checkFechaCorrecta() != -1){
-            c = txtCiudad.getText();
-            inicio = jdInicio.getDate();
-            fin = jdFin.getDate();
-            checkFechaCorrecta();
-            dispose();
-        }else{
+        } else if (checkFechaCorrecta() != -1) {
+            if (checkFechaEventos()) {
+                c = txtCiudad.getText();
+                inicio = jdInicio.getDate();
+                fin = jdFin.getDate();
+                checkFechaCorrecta();
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Una de la fecha de este evento coincide con una de las fecha de otro evento");
+            }
+        } else {
             JOptionPane.showMessageDialog(null, "El orden de las fechas es incorrecto");
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
