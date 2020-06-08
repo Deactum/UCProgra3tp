@@ -51,17 +51,13 @@
                           <Component id="etiTitulo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jdFecha" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNomInves" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Component id="txtTitulo" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Component id="txtDescripcion" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtNomInves" pref="150" max="32767" attributes="0"/>
+                          <Component id="txtTitulo" alignment="0" pref="150" max="32767" attributes="0"/>
+                          <Component id="txtDescripcion" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+                          <Component id="cboFechas" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -77,11 +73,11 @@
                   <Component id="txtTitulo" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="etiFecha" min="-2" max="-2" attributes="0"/>
-                  <Component id="jdFecha" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cboFechas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiFecha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="etiNomInves" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNomInves" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -96,7 +92,7 @@
                   <Component id="etiTipoPonencia" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cboTipoPonencia" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -150,8 +146,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtTitulo">
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jdFecha">
-    </Component>
     <Component class="javax.swing.JTextField" name="txtNomInves">
     </Component>
     <Component class="javax.swing.JTextField" name="txtDescripcion">
@@ -163,6 +157,16 @@
             <StringItem index="0" value="Presencial"/>
             <StringItem index="1" value="Videoconferencia"/>
           </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cboFechas">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>

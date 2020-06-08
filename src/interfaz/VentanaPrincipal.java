@@ -7,6 +7,8 @@ import static javax.swing.JOptionPane.YES_OPTION;
 import javax.swing.table.DefaultTableModel;
 import modelo.*;
 import java.io.*;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -365,7 +367,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                 modelo.addRow(fila);
             }
             tablaPonencia.setModel(modelo);
-            etiTotalPone.setText(""+tablaPonencia.getRowCount());
+            etiTotalPone.setText("" + tablaPonencia.getRowCount());
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showConfirmDialog(null, "Entrada de indice incorrecto", "Alerta!", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
         }
@@ -388,6 +390,25 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         tablaPonencia.setModel(modelo);
         etiTotalPone.setText("");
+    }
+
+    private boolean checkLimite() {
+        long diff = listaE.get(index).getFechafin().getTime() - listaE.get(index).getFechain().getTime();
+        int PonenT = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + 1;
+        int Ponen = Integer.parseInt(etiTotalPone.getText());
+        return Ponen == PonenT;
+    }
+
+    public Date getFechaIni(int i) {
+        return listaE.get(i).getFechain();
+    }
+
+    public Date getFechafin(int i) {
+        return listaE.get(i).getFechafin();
+    }
+
+    public Evento getEvento(int i) {
+        return listaE.get(i);
     }
     private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
         AgregarEvento ae = new AgregarEvento(this, true);
@@ -419,13 +440,18 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
     private void btnAgregarPonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPonActionPerformed
         if (listaE.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No existe un evento para agregar una ponencia");
-        } else {
-            AgregarPonencia ap = new AgregarPonencia(this, true);
+        } else if (!checkLimite()) {
+            AgregarPonencia ap = new AgregarPonencia(this, true, index);
             ap.setVisible(true);
-            listaE.get(index).agregarPonencias(ap.getTitulo(), ap.getFecha(), ap.getNomInves(), ap.getDescrip(), ap.getTipoPone());
-            actualizarLista();
-            actualizarCabecera();
-            copiarDatos();
+            if (ap.operacionRealizada) {
+                listaE.get(index).agregarPonencias(ap.getTitulo(), ap.getFecha(), ap.getNomInves(), ap.getDescrip(), ap.getTipoPone());
+                actualizarLista();
+                actualizarCabecera();
+                copiarDatos();
+                ap.operacionRealizada = false;
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Ya no hay fechas disponibles en el evento para agregar la ponencia");
         }
     }//GEN-LAST:event_btnAgregarPonActionPerformed
 
@@ -471,7 +497,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         if (listaE.isEmpty()) {
             JOptionPane.showMessageDialog(null, "La lista de eventos esta vacia");
         } else {
-            if (index != listaE.size()-1) {
+            if (index != listaE.size() - 1) {
                 index += 1;
                 actualizarCabecera();
                 actualizarLista();

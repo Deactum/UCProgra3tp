@@ -1,7 +1,11 @@
 package interfaz;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import modelo.Evento;
 
 /**
  *
@@ -14,12 +18,21 @@ public class AgregarPonencia extends javax.swing.JDialog {
     private String nomInves;
     private String descrip;
     private String tipoPone;
+    private int fIndex;
 
-    public AgregarPonencia(java.awt.Frame parent, boolean modal) {
+    public boolean operacionRealizada = false;
+
+    public AgregarPonencia(java.awt.Frame parent, boolean modal, int fIndex) {
         super(parent, modal);
+        this.fIndex = fIndex;
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        try {
+            agregarFechas();
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, "Ha ocurrido un error:\n" + e, "Alerta!", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public String getTitulo() {
@@ -42,6 +55,28 @@ public class AgregarPonencia extends javax.swing.JDialog {
         return tipoPone;
     }
 
+    private void agregarFechas() throws ParseException {
+        VentanaPrincipal vp = new VentanaPrincipal();
+        Evento e = vp.getEvento(fIndex);
+        //Agarrar fechas + formato
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+        Date desdeDate = vp.getFechaIni(fIndex);
+        Date hastaDate = vp.getFechafin(fIndex);
+        //Obtener fehcas entre fechas y agregar al cbo
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(desdeDate);
+        if (e.buscarPonencia(sdformat.format(cal.getTime()))) {
+            cboFechas.addItem(sdformat.format(desdeDate));
+        }
+        while (cal.getTime().before(hastaDate)) {
+            cal.add(Calendar.DATE, 1);
+            if (e.buscarPonencia(sdformat.format(cal.getTime()))) {
+                cboFechas.addItem(sdformat.format(cal.getTime()));
+            }
+        }
+        cboFechas.removeItem(sdformat.format(cal.getTime()));
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -54,10 +89,10 @@ public class AgregarPonencia extends javax.swing.JDialog {
         etiDescripcion = new javax.swing.JLabel();
         etiTipoPonencia = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
-        jdFecha = new com.toedter.calendar.JDateChooser();
         txtNomInves = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
         cboTipoPonencia = new javax.swing.JComboBox<>();
+        cboFechas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Agregar una ponencia");
@@ -114,14 +149,12 @@ public class AgregarPonencia extends javax.swing.JDialog {
                             .addComponent(etiDescripcion)
                             .addComponent(etiTitulo))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jdFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNomInves, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNomInves, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboFechas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
@@ -132,10 +165,10 @@ public class AgregarPonencia extends javax.swing.JDialog {
                     .addComponent(etiTitulo)
                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiFecha)
-                    .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cboFechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiFecha))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiNomInves)
                     .addComponent(txtNomInves, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -147,7 +180,7 @@ public class AgregarPonencia extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiTipoPonencia)
                     .addComponent(cboTipoPonencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar))
@@ -162,15 +195,21 @@ public class AgregarPonencia extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        if ("".equals(txtTitulo.getText()) || jdFecha.getDate() == null || "".equals(txtNomInves.getText()) || "".equals(txtDescripcion.getText()) ) {
+        if ("".equals(txtTitulo.getText()) || "".equals(txtNomInves.getText()) || "".equals(txtDescripcion.getText())) {
             JOptionPane.showMessageDialog(null, "Un campo esta vacio.");
         } else {
-            titulo = txtTitulo.getText();
-            fecha = jdFecha.getDate();
-            nomInves = txtNomInves.getText();
-            descrip = txtDescripcion.getText();
-            tipoPone = cboTipoPonencia.getSelectedItem().toString();
-            dispose();
+            try {
+                titulo = txtTitulo.getText();
+                SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+                fecha = sdformat.parse(cboFechas.getSelectedItem().toString());
+                nomInves = txtNomInves.getText();
+                descrip = txtDescripcion.getText();
+                tipoPone = cboTipoPonencia.getSelectedItem().toString();
+                operacionRealizada = true;
+                dispose();
+            } catch (ParseException ex) {
+                JOptionPane.showConfirmDialog(null, "Ha ocurrido un error:\n" + ex, "Alerta!", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -200,7 +239,7 @@ public class AgregarPonencia extends javax.swing.JDialog {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AgregarPonencia dialog = new AgregarPonencia(new javax.swing.JFrame(), true);
+                AgregarPonencia dialog = new AgregarPonencia(new javax.swing.JFrame(), true, 0);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -215,13 +254,13 @@ public class AgregarPonencia extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JComboBox<String> cboFechas;
     private javax.swing.JComboBox<String> cboTipoPonencia;
     private javax.swing.JLabel etiDescripcion;
     private javax.swing.JLabel etiFecha;
     private javax.swing.JLabel etiNomInves;
     private javax.swing.JLabel etiTipoPonencia;
     private javax.swing.JLabel etiTitulo;
-    private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtNomInves;
     private javax.swing.JTextField txtTitulo;

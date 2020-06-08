@@ -7,6 +7,8 @@ package modelo;
  */
 import java.util.*;
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 public class Evento implements Serializable  {
     private String ciudad;
     private Date fechain;
@@ -50,6 +52,19 @@ public class Evento implements Serializable  {
         lista.add(o);
         Collections.sort(lista);
     }
+    
+    public boolean buscarPonencia(String fecha) throws ParseException {
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+        Ponencia ponenciaBuscada = null;
+        for (Ponencia pon : lista) {
+            if (fecha.equals(sdformat.format(pon.getFecha()))) {
+                ponenciaBuscada = pon;
+                break;
+            }
+        }
+        return ponenciaBuscada == null;
+    }
+    
     public void borrarPonencia(int index){
         lista.remove(index);
     }
