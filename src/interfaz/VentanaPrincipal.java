@@ -416,6 +416,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         Evento e = new Evento(ae.getC(), ae.getInicio(), ae.getFin());
         listaE.add(e);
         actualizarCabecera();
+        etiTotalPone.setText("0");
         copiarDatos();
     }//GEN-LAST:event_btnAgregarEveActionPerformed
 

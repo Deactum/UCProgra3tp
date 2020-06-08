@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -120,15 +121,29 @@ public class AgregarEvento extends javax.swing.JDialog {
     public Date getFin() {
         return fin;
     }
+    
+    private int checkFechaCorrecta(){
+        int count = -1;
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(jdInicio.getDate());
+        while (cal.getTime().before(jdFin.getDate())) {
+            cal.add(Calendar.DATE, 1);
+            count++;
+        }
+        return count;
+    }
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if ("".equals(txtCiudad.getText()) || jdInicio.getDate() == null || jdFin.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Un campo esta vacio.");
-        } else {
+        } else if(checkFechaCorrecta() != -1){
             c = txtCiudad.getText();
             inicio = jdInicio.getDate();
             fin = jdFin.getDate();
+            checkFechaCorrecta();
             dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "El orden de las fechas es incorrecto");
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
