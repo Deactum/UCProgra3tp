@@ -45,6 +45,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         etiMostFechFin = new javax.swing.JLabel();
         etiMostTotalPone = new javax.swing.JLabel();
         etiMostNumVideo = new javax.swing.JLabel();
+        etiMostDuraEvento = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPonencia = new javax.swing.JTable();
         etiCiudad = new javax.swing.JLabel();
@@ -52,6 +53,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         etiFechFin = new javax.swing.JLabel();
         etiTotalPone = new javax.swing.JLabel();
         etiNumVideo = new javax.swing.JLabel();
+        etiDuraEvento = new javax.swing.JLabel();
         pnlDatoPag = new javax.swing.JPanel();
         btnPagPrincipio = new javax.swing.JButton();
         btnPagAnterior = new javax.swing.JButton();
@@ -152,6 +154,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
 
         etiMostNumVideo.setText("Numero de Videoconferencias:");
 
+        etiMostDuraEvento.setText("Duracion del Evento:");
+
         tablaPonencia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -161,6 +165,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
             }
         ));
         jScrollPane1.setViewportView(tablaPonencia);
+
+        etiDuraEvento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
@@ -184,9 +190,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                                     .addComponent(etiCiudad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(etiFechIni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(73, 73, 73)
-                                .addComponent(etiMostFechFin)
+                                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(etiMostFechFin)
+                                    .addComponent(etiMostDuraEvento))
                                 .addGap(18, 18, 18)
-                                .addComponent(etiFechFin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(etiFechFin, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(etiDuraEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(69, 69, 69))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                                 .addComponent(etiMostNumVideo)
@@ -202,9 +212,13 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
             pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(etiMostCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(etiCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(etiMostCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(etiCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(etiMostDuraEvento)
+                        .addComponent(etiDuraEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(etiMostFechIni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -267,7 +281,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                 .addComponent(btnPagPrincipio, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
                 .addComponent(btnPagAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(btnPagSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94)
                 .addComponent(btnPagFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -383,7 +397,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         tablaPonencia.setModel(modelo);
         etiTotalPone.setText(Integer.toString(tablaPonencia.getRowCount()));
         etiNumVideo.setText(Integer.toString(Modo_video));
-
+        etiDuraEvento.setText(Integer.toString(calcularDias()) + " Dias");
     }
 
     private void actualizarCabecera() {
@@ -404,11 +418,17 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         tablaPonencia.setModel(modelo);
         etiTotalPone.setText("");
         etiNumVideo.setText("");
+        etiDuraEvento.setText("");
+    }
+
+    private int calcularDias() {
+        long diff = listaE.get(index).getFechafin().getTime() - listaE.get(index).getFechain().getTime();
+        int dias = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + 1;
+        return dias;
     }
 
     private boolean checkLimite() {
-        long diff = listaE.get(index).getFechafin().getTime() - listaE.get(index).getFechain().getTime();
-        int PonenT = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + 1;
+        int PonenT = calcularDias();
         int Ponen = Integer.parseInt(etiTotalPone.getText());
         return Ponen == PonenT;
     }
@@ -440,6 +460,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
             actualizarCabecera();
             etiNumVideo.setText("0");
             etiTotalPone.setText("0");
+            etiDuraEvento.setText("0 Dias");
             copiarDatos();
         }
 
@@ -583,9 +604,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
     private javax.swing.JButton btnPagPrincipio;
     private javax.swing.JButton btnPagSiguiente;
     private javax.swing.JLabel etiCiudad;
+    private javax.swing.JLabel etiDuraEvento;
     private javax.swing.JLabel etiFechFin;
     private javax.swing.JLabel etiFechIni;
     private javax.swing.JLabel etiMostCiudad;
+    private javax.swing.JLabel etiMostDuraEvento;
     private javax.swing.JLabel etiMostFechFin;
     private javax.swing.JLabel etiMostFechIni;
     private javax.swing.JLabel etiMostNumVideo;

@@ -229,9 +229,15 @@
                                       <Component id="etiFechIni" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Component id="etiMostFechFin" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="etiMostFechFin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="etiMostDuraEvento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="etiFechFin" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="etiFechFin" pref="150" max="32767" attributes="0"/>
+                                      <Component id="etiDuraEvento" max="32767" attributes="0"/>
+                                  </Group>
                                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -254,9 +260,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="etiMostCiudad" max="32767" attributes="0"/>
-                      <Component id="etiCiudad" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="etiMostCiudad" max="32767" attributes="0"/>
+                          <Component id="etiCiudad" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="etiMostDuraEvento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="etiDuraEvento" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -307,6 +319,11 @@
         <Component class="javax.swing.JLabel" name="etiMostNumVideo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Numero de Videoconferencias:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiMostDuraEvento">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Duracion del Evento:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -373,6 +390,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="etiNumVideo">
         </Component>
+        <Component class="javax.swing.JLabel" name="etiDuraEvento">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="pnlDatoPag">
@@ -392,7 +416,7 @@
                   <Component id="btnPagPrincipio" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="btnPagAnterior" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="101" max="32767" attributes="0"/>
                   <Component id="btnPagSiguiente" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                   <Component id="btnPagFinal" min="-2" pref="90" max="-2" attributes="0"/>
