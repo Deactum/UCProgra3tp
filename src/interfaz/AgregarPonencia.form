@@ -54,8 +54,8 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txtNomInves" pref="150" max="32767" attributes="0"/>
                           <Component id="txtTitulo" alignment="0" pref="150" max="32767" attributes="0"/>
-                          <Component id="txtDescripcion" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                           <Component id="cboFechas" max="32767" attributes="0"/>
+                          <Component id="txtDescripcion" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -121,7 +121,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="etiTitulo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Titulo"/>
+        <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etiFecha">
@@ -136,7 +136,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="etiDescripcion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Descripc&#xed;on"/>
+        <Property name="text" type="java.lang.String" value="Descripc&#xed;&#xf3;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etiTipoPonencia">

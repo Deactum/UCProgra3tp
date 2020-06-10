@@ -111,13 +111,13 @@ public class AgregarPonencia extends javax.swing.JDialog {
             }
         });
 
-        etiTitulo.setText("Titulo");
+        etiTitulo.setText("Título");
 
         etiFecha.setText("Fecha");
 
         etiNomInves.setText("Nombre del Investigador");
 
-        etiDescripcion.setText("Descripcíon");
+        etiDescripcion.setText("Descripcíón");
 
         etiTipoPonencia.setText("Tipo de Ponencia");
 
@@ -152,8 +152,8 @@ public class AgregarPonencia extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNomInves, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(txtTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cboFechas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cboFechas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(15, 15, 15))
         );

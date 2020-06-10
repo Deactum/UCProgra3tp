@@ -44,7 +44,7 @@ public class AgregarEvento extends javax.swing.JDialog {
 
         jLabel2.setText("Fecha de inicio");
 
-        jLabel3.setText("Fecha de Finalzacion");
+        jLabel3.setText("Fecha de Finalización");
 
         btnAceptar.setText("Acepta");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,10 +82,10 @@ public class AgregarEvento extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2))
-                                .addGap(51, 51, 51)
+                                .addGap(54, 54, 54)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jdInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jdInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(

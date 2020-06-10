@@ -417,11 +417,17 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
     private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
         AgregarEvento ae = new AgregarEvento(this, true);
         ae.setVisible(true);
-        Evento e = new Evento(ae.getC(), ae.getInicio(), ae.getFin());
-        listaE.add(e);
-        actualizarCabecera();
-        etiTotalPone.setText("0");
-        copiarDatos();
+        
+        if(ae.getC()==null){
+            JOptionPane.showMessageDialog(null,"No se ha agregado ningún evento");
+        }else{
+            Evento e = new Evento(ae.getC(), ae.getInicio(), ae.getFin());
+            listaE.add(e);
+            actualizarCabecera();
+            etiTotalPone.setText("0");
+            copiarDatos();
+        }
+        
     }//GEN-LAST:event_btnAgregarEveActionPerformed
 
     private void btnEliminarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEveActionPerformed
