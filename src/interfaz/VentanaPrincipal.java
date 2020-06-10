@@ -350,7 +350,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
     }
 
     private void actualizarLista() {
-        try {
             String titulos[] = {"Titulo", "Fecha", "Nombre del Investigador", "Descripcion", "Tipo de Ponencia"};
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             ArrayList<Ponencia> li = new ArrayList();
@@ -368,9 +367,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
             }
             tablaPonencia.setModel(modelo);
             etiTotalPone.setText("" + tablaPonencia.getRowCount());
-        } catch (ArrayIndexOutOfBoundsException e) {
-            JOptionPane.showConfirmDialog(null, "Entrada de indice incorrecto", "Alerta!", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
-        }
+
     }
 
     private void actualizarCabecera() {
