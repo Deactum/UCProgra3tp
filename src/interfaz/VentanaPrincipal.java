@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  *
- * @author Enzo, dfleitas
+ * @author Enzo, dfleitas, Bogado
  */
 public class VentanaPrincipal extends javax.swing.JFrame implements Serializable {
 
@@ -43,13 +43,15 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         etiMostCiudad = new javax.swing.JLabel();
         etiMostFechIni = new javax.swing.JLabel();
         etiMostFechFin = new javax.swing.JLabel();
+        etiMostTotalPone = new javax.swing.JLabel();
+        etiMostNumVideo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPonencia = new javax.swing.JTable();
-        etiMostTotalPone = new javax.swing.JLabel();
         etiCiudad = new javax.swing.JLabel();
         etiFechIni = new javax.swing.JLabel();
         etiFechFin = new javax.swing.JLabel();
         etiTotalPone = new javax.swing.JLabel();
+        etiNumVideo = new javax.swing.JLabel();
         pnlDatoPag = new javax.swing.JPanel();
         btnPagPrincipio = new javax.swing.JButton();
         btnPagAnterior = new javax.swing.JButton();
@@ -146,6 +148,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
 
         etiMostFechFin.setText("Fecha de Finalizacíon:");
 
+        etiMostTotalPone.setText("Total de Ponencias:");
+
+        etiMostNumVideo.setText("Numero de Videoconferencias:");
+
         tablaPonencia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -155,8 +161,6 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
             }
         ));
         jScrollPane1.setViewportView(tablaPonencia);
-
-        etiMostTotalPone.setText("Total de Ponencias:");
 
         javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
         pnlDatos.setLayout(pnlDatosLayout);
@@ -185,6 +189,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                                 .addComponent(etiFechFin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(69, 69, 69))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosLayout.createSequentialGroup()
+                                .addComponent(etiMostNumVideo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(etiNumVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(169, 169, 169)
                                 .addComponent(etiMostTotalPone)
                                 .addGap(18, 18, 18)
                                 .addComponent(etiTotalPone, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,7 +217,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(etiTotalPone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(etiMostTotalPone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(etiMostTotalPone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(etiMostNumVideo)
+                        .addComponent(etiNumVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
         );
 
@@ -350,23 +361,28 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
     }
 
     private void actualizarLista() {
-            String titulos[] = {"Titulo", "Fecha", "Nombre del Investigador", "Descripcion", "Tipo de Ponencia"};
-            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-            ArrayList<Ponencia> li = new ArrayList();
-            SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
-            li = listaE.get(index).getLista();
-            modelo.setRowCount(0);
-            Object fila[] = new Object[tablaPonencia.getColumnCount()];
-            for (int i = 0; i < li.size(); i++) {
-                fila[0] = li.get(i).getTitulo();
-                fila[1] = sdformat.format(li.get(i).getFecha());
-                fila[2] = li.get(i).getInvestigador();
-                fila[3] = li.get(i).getDescripcion();
-                fila[4] = li.get(i).getMedio();
-                modelo.addRow(fila);
+        String titulos[] = {"Titulo", "Fecha", "Nombre del Investigador", "Descripcion", "Tipo de Ponencia"};
+        int Modo_video = 0;
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        ArrayList<Ponencia> li = new ArrayList();
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+        li = listaE.get(index).getLista();
+        modelo.setRowCount(0);
+        Object fila[] = new Object[tablaPonencia.getColumnCount()];
+        for (int i = 0; i < li.size(); i++) {
+            fila[0] = li.get(i).getTitulo();
+            fila[1] = sdformat.format(li.get(i).getFecha());
+            fila[2] = li.get(i).getInvestigador();
+            fila[3] = li.get(i).getDescripcion();
+            fila[4] = li.get(i).getMedio();
+            if ("Videoconferencia".equals(li.get(i).getMedio())) {
+                Modo_video++;
             }
-            tablaPonencia.setModel(modelo);
-            etiTotalPone.setText("" + tablaPonencia.getRowCount());
+            modelo.addRow(fila);
+        }
+        tablaPonencia.setModel(modelo);
+        etiTotalPone.setText(Integer.toString(tablaPonencia.getRowCount()));
+        etiNumVideo.setText(Integer.toString(Modo_video));
 
     }
 
@@ -387,6 +403,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         tablaPonencia.setModel(modelo);
         etiTotalPone.setText("");
+        etiNumVideo.setText("");
     }
 
     private boolean checkLimite() {
@@ -407,24 +424,25 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
     public Evento getEvento(int i) {
         return listaE.get(i);
     }
-    
-    public ArrayList<Evento> getListaEve(){
+
+    public ArrayList<Evento> getListaEve() {
         return listaE;
     }
     private void btnAgregarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEveActionPerformed
         AgregarEvento ae = new AgregarEvento(this, true);
         ae.setVisible(true);
-        
-        if(ae.getC()==null){
-            JOptionPane.showMessageDialog(null,"No se ha agregado ningún evento");
-        }else{
+
+        if (ae.getC() == null) {
+            JOptionPane.showMessageDialog(null, "No se ha agregado ningún evento");
+        } else {
             Evento e = new Evento(ae.getC(), ae.getInicio(), ae.getFin());
             listaE.add(e);
             actualizarCabecera();
+            etiNumVideo.setText("0");
             etiTotalPone.setText("0");
             copiarDatos();
         }
-        
+
     }//GEN-LAST:event_btnAgregarEveActionPerformed
 
     private void btnEliminarEveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEveActionPerformed
@@ -458,7 +476,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
                 copiarDatos();
                 ap.operacionRealizada = false;
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ya no hay fechas disponibles en el evento para agregar la ponencia");
         }
     }//GEN-LAST:event_btnAgregarPonActionPerformed
@@ -570,7 +588,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements Serializable
     private javax.swing.JLabel etiMostCiudad;
     private javax.swing.JLabel etiMostFechFin;
     private javax.swing.JLabel etiMostFechIni;
+    private javax.swing.JLabel etiMostNumVideo;
     private javax.swing.JLabel etiMostTotalPone;
+    private javax.swing.JLabel etiNumVideo;
     private javax.swing.JLabel etiTItuloPrincipal;
     private javax.swing.JLabel etiTotalPone;
     private javax.swing.JScrollPane jScrollPane1;

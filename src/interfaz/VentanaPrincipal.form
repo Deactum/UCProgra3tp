@@ -235,6 +235,10 @@
                                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
+                                  <Component id="etiMostNumVideo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="etiNumVideo" min="-2" pref="52" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                                   <Component id="etiMostTotalPone" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="etiTotalPone" min="-2" pref="40" max="-2" attributes="0"/>
@@ -268,7 +272,11 @@
                   <EmptySpace type="unrelated" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="etiTotalPone" max="32767" attributes="0"/>
-                      <Component id="etiMostTotalPone" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="etiMostTotalPone" alignment="3" max="32767" attributes="0"/>
+                          <Component id="etiMostNumVideo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="etiNumVideo" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
@@ -289,6 +297,16 @@
         <Component class="javax.swing.JLabel" name="etiMostFechFin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha de Finalizac&#xed;on:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiMostTotalPone">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total de Ponencias:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiMostNumVideo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Numero de Videoconferencias:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -345,11 +363,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="etiMostTotalPone">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Total de Ponencias:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="etiCiudad">
         </Component>
         <Component class="javax.swing.JLabel" name="etiFechIni">
@@ -357,6 +370,8 @@
         <Component class="javax.swing.JLabel" name="etiFechFin">
         </Component>
         <Component class="javax.swing.JLabel" name="etiTotalPone">
+        </Component>
+        <Component class="javax.swing.JLabel" name="etiNumVideo">
         </Component>
       </SubComponents>
     </Container>
